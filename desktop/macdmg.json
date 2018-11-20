@@ -1,0 +1,12 @@
+{
+  "title": "PrizemApp",
+  "icon": "prizemLogo.icns",
+  "window":{
+
+    "size": {"width": 400, "height": 256}
+  },
+  "contents": [
+    { "x": 280, "y": 123, "type": "link", "path": "/Applications" },
+    { "x": 100, "y": 123, "type": "file", "path": "PrizemApp-darwin-x64/PrizemApp.app"}
+  ]
+}

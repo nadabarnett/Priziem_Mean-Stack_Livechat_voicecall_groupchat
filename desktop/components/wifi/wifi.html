@@ -1,0 +1,34 @@
+<div flex class="wifi-main" layout="row" >
+    <div flex>
+        <md-list flex>
+            <md-subheader class="md-no-sticky">Manual Paring
+                <label class="switch" style="float: right;">
+                    <input type="checkbox" ng-model="manual_connect" ng-click="onManual(manual_connect)">
+                    <span class="slider round"></span>
+                </label>
+            </md-subheader>
+            <div ng-show="manual_connect" style="width: 100%;height: 50px;padding: 10px;">
+                <input type="text" id="serverip" maxlength="16" ng-model="server_ip" placeholder="127.0.0.1" style="text-align: center;"/>
+                <button style="position: relative;float: right;" ng-click="clickManual()">Connect
+                    <md-tooltip>Connect to server</md-tooltip>
+                </button>
+            </div>
+            <p style="width:100%;border-bottom: 2px solid #172cec"></p>
+            <div ng-show="!manual_connect">
+                <md-subheader ng-repeat-start="(subHeader,devices) in {'Recent':recents,'Choose a device':networks}"
+                            class="md-no-sticky">{{subHeader}}</md-subheader>
+                <p ng-if="!devices.length" class="wifi-device">{{subHeader=='Recent'?'No recent devices detected':'No Wi-Fi devices found'}}</p>
+                <md-list-item  ng-repeat="device in devices"  class="noright"  ng-click="$parent.clickDevice(device)" ng-repeat-end >
+                    <p> {{device.ssid}}
+                        <md-button class="md-icon-button">
+                            <md-icon md-colors="{color:'primary'}" ng-hide="!$parent.connectedWiFi||$parent.connectedWiFi.ssid!=device.ssid">check_circle</md-icon>
+                            <md-tooltip>Connected</md-tooltip>
+                        </md-button>
+                    </p>
+                    <md-icon class="md-secondary wifi-device-icon" md-colors="{color:'primary'}" md-svg-src="css/svg/signal_wifi_{{dpmToBars(device.signal_level)}}_bar{{device.security=='Open'?'':'_lock'}}.svg"></md-icon>
+                </md-list-item>
+            </div>
+        </md-list>
+    </div>
+</div>
+

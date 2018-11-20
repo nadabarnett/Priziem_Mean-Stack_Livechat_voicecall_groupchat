@@ -1,0 +1,17 @@
+{
+    "name": "PrizemServer",
+    "version": "2.0.0",
+    "main": "server.js",
+    "license": "UNLICENSED",
+    "description": "Server For Prizem Desktop and Web Application",
+    "repository": "https://github.com/krishisola/Prizem",
+    "dependencies": {
+        "websocket": "*",
+        "uuid": "*",
+        "https": "*",
+        "express": "*"
+    },
+    "scripts": {
+        "start": "node ./server/prizemServer.js  >~/prizemServer.log 2>&1 &"
+    }
+}

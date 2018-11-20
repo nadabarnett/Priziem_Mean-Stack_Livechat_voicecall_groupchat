@@ -1,0 +1,198 @@
+<div ng-controller="room" class="chatroom fullheight" ng-init="onload()">
+<!--====== Header area started here ======-->
+<header class="header-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <a  href="" class="logo">
+                    <img src="assets/img/Bitmap_14.png" alt="logo img">
+                    <span><span class="small-text">{{roomTitle}}</span>
+                        <i class="fa fa-angle-right"></i>
+                        <br>
+                        {{roomName}}
+                    </span>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <div class="header-right">
+                    <div class="header-right">
+                        <a  class="faq" href="">
+                            <span class="icon-wrap">
+                           <img class="under" src="assets/img/faq-black.png" alt="bitmap img">
+                           <img class="upper" src="assets/img/faq-blue.png" alt="bitmap img">
+                       </span>
+                        </a>
+                        <a  class="notification" href="">
+                            <span class="icon-wrap">
+                           <img class="under" src="assets/img/notification-black.png" alt="bitmap img">
+                           <img class="upper" src="assets/img/notification-blue.png" alt="bitmap img">
+                       </span>
+                        </a>
+                        <span class="user-wrap">
+                            <span class="icon-wrap">
+                           <img class="under" src="assets/img/user-icon-blue.png" alt="bitmap img">
+                           <img class="upper" src="assets/img/user-icon-white.png" alt="bitmap img">
+                       </span>
+                            <a href="">{{loginName}}</a>
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--====== Header area end here ======-->
+
+<!--====== Team section started here ======-->
+<div class="wrapper">
+    <div class="side-tab">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" ng-click="onClickShowShareMenu()" href="">
+                    <span class="icon-wrap">
+                        <img class="under" src="assets/img/share-black.png" alt="">
+                        <img class="upper" src="assets/img/share-blue.png" alt="">
+                    </span>
+                    <span class="navigator-text">Share</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" ng-click="onClickToggleTab(1)" href="" id="roaster">
+                   <span class="icon-wrap">
+                        <img class="under" src="assets/img/roast-black.png" alt="">
+                        <img class="upper" src="assets/img/roast-blue.png" alt="">
+                    </span>
+                    <span class="navigator-text">Roaster</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" ng-click="onClickToggleTab(0)" href="" id="chat">
+                     <span class="icon-wrap">
+                        <img class="under" src="assets/img/chat-black.png" alt="">
+                        <img class="upper" src="assets/img/chat-blue.png" alt="">
+                    </span>
+                    <span class="navigator-text">Chat</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" ng-click="onClickShowAudioCall()" href="">
+                    <span class="icon-wrap">
+                        <img class="under" src="assets/img/phone-black.png" alt="">
+                        <img class="upper" src="assets/img/phone-blue.png" alt="">
+                    </span>
+                    <span class="navigator-text">Audio Call</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" ng-click="onClickShowDocument()" href="">
+                    <span class="icon-wrap">
+                        <img class="under" src="assets/img/doc-black.png" alt="">
+                        <img class="upper" src="assets/img/doc-blue.png" alt="">
+                    </span>
+                    <span class="navigator-text">Document</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" ng-click="onClickExit()" href="">
+                    <span class="icon-wrap">
+                        <img class="under" src="assets/img/log-out-black.png" alt="">
+                        <img class="upper" src="assets/img/logout-blue.png" alt="">
+                    </span>
+                    <span class="navigator-text">Exit</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="output">
+        <div class="tab-content" ng-show="bShowShareMenu">
+            <div class="tab-pane container show active" id="tabOne">
+                <div class="content-wrap-table">
+                    <div class="content-wrap">
+                        <a ng-click="onClickShowWiteboard()" href="" class="single-color-box">
+                            <img src="assets/img/pen.png" alt="pen img">
+                            <h2 class="action-navigator">Whiteboard</h2>
+                        </a>
+                        <a ng-click="onClickShowScreen()" href="" class="single-color-box">
+                            <img src="assets/img/screen-share-white.png" alt="pen img">
+                            <h2 class="action-navigator">Sreen Share</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- white-board -->
+        <div class="whiteboard_view" id="sharedWhiteboard" ng-show="bShowWhiteboard"></div>
+        <!-- Screen share -->
+        <div class="screenshare_view" id="sharedScreen"  ng-show="bShowScreen">
+            <video id="streamVideo" flex controls autoplay muted allowfullscreen="true" allowscriptaccess="always"></video>
+        </div>
+        <!-- doc collaboration -->
+        <div class="collabration_view" id="sharedDoc" ng-show="bShowDoc">
+            <iframe class="collabView" src="" width=100% height=100%></iframe>            
+        </div>
+        <!-- Screen share -->
+        <div flex layout="column" ng-show="bShowScreenSelect">
+            <div  layout="column" flex class="screen-select-main">
+                <div>
+                    <md-list>
+                        <md-button class="screen-select-button" ng-repeat="screenSource in screenSources" ng-click="onSelectScreen(screenSource.id)">
+                            <p title="{{screenSource.name}}" class="screen-select-p">
+                                <md-icon>{{screenSource.id==SHARE_TYPE_WHITEBOARD?"brush":(screenSource.id.startsWith('screen')?'desktop_windows':'apps')}}</md-icon>
+                                &nbsp;{{screenSource.name}}</p>
+                            <md-tooltip ng-if="!!screenSource.thumbnail" class="screen-select-tooltip" md-direction="right">
+                                <span>1</span>
+                                <img ng-src="{{screenSource.thumbnail.toDataURL()}}"/>
+                            </md-tooltip>
+                        </md-button>
+                    </md-list>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat_tab" ng-show="bShowTab">
+            <input id="chat_tab1" type="radio" name="tab_menu" checked>
+            <input id="chat_tab2" type="radio" name="tab_menu">
+            <i class="chat_tab_panel_close fa fa-close" ng-click="onCloseTab()"></i>
+            <i class="chat_tab_panel_min fa fa-minus" ng-click="onCloseMinMax()"></i>
+
+            <div class="chat_tab_area">
+                <label class="tab1_label" for="chat_tab1" ng-click="onClickTab(0)">Chat</label>
+                <label class="tab2_label" for="chat_tab2" ng-click="onClickTab(1)">Roaster</label>
+            </div>
+            <div class="chat_tab_panel_area">
+
+                <div id="chat_panel1" class="chat_tab_panel" ng-show="bShowTabChat">
+                    <div id="textChat"  file-dropzone="[*/*]">
+                        <div id="chatBody" class="chatBody">
+                            <div ng-repeat="chat in currentTeam.chats">
+                                <div class="row">
+                                    <div ng-include="getChatContents(chat)" ></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat_input">
+                            <div style="padding:3px;margin-top:3px">
+                                <button class="chat_append_button" type="button" id="addFiles" ng-click="onFileUpload()">+</button>
+                                <input id="upload-file" type="file" accept="*/*" style="display:none" onchange="angular.element(this).scope().onFileChange(this)">                    
+                                <button class="chat_send_button" type="button" ng-click="doPostText()" id="sendMsgBtn">Send</button>
+                                <textarea type="text" class="chat_input_edit" id="chat_input_edit" placeholder='Type a message' data-meteor-emoji="true" ng-keyup="onKeyDown($event)"></textarea>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+
+                <div id="chat_panel2" class="chat_tab_panel" ng-show="bShowTabRoaster">
+                    <div class="perticipants">
+                        <ul class="perticipants-list">
+                            <li ng-repeat="user in roasters"><a href="">{{user.login}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--====== Team section end here ======-->

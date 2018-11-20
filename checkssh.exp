@@ -1,0 +1,11 @@
+#!/usr/bin/expect -f
+
+set arg1 [lindex $argv 0]
+
+set timeout 5;
+
+spawn ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no pi@$arg1 "echo OK"
+expect "assword:"
+sleep 1
+send "raspberry\r"
+expect "OK"

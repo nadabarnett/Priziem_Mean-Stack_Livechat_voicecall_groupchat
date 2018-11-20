@@ -1,0 +1,34 @@
+{
+    "name": "prizemapp",
+    "version": "2.0.0",
+    "main": "main.js",
+    "description": "Prizem Desktop and Web Application",
+    "license": "UNLICENSED",
+    "repository": "https://github.com/krishisola/Prizem",
+    "dependencies": {
+        "wifi-control": "*",
+        "node-wifi": "*",
+        "angular": "*",
+        "@uirouter/angularjs": "*",
+        "electron-log": "*",
+        "electron-settings": "*",
+        "angular-material": "*",
+        "angular-animate": "*",
+        "angular-messages": "*",
+        "angular-aria": "*",
+        "file-saver": "*",
+        "d3": "*",
+        "pretty-colorwheel": "*",
+        "jquery": "*",
+        "request": "*",
+        "raphael": "2.1.4"
+    },
+    "scripts": {
+        "start": "electron ../desktop PRIZEM 12345678 192.168.0.92 false true",
+        "mpair": "electron ../desktop PRIZEM 12345678 192.168.10.90 true true",
+        "test": "electron ../desktop Ukrtelecom 06496048 147.75.100.143 false true",
+        "winbuild": "electron-packager --electron-version=1.7.9 --overwrite . PrizemApp  --platform=win32 --arch=x64 --icon=prizemLogo.ico",
+        "macbuild": "electron-packager --electron-version=1.7.9 --overwrite . PrizemApp --platform=darwin --arch=x64 --icon=prizemLogo.icns",
+        "winbuild32": "electron-packager --electron-version=1.7.9 --overwrite . PrizemApp  --platform=win32 --arch=ia32 --icon=prizemLogo.ico"
+    }
+}

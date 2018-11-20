@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!--skip-->
+    <title>EasyRTC Demo: Multistream calls</title>
+    <!--hide-->
+
+    <!--show-->
+    <!-- Assumes global locations for socket.io.js and easyrtc.js -->
+    <script src="lib/socket.io.js"></script>
+    <script type="text/javascript" src="lib/easyrtc.js"></script>
+    <script type="text/javascript" src="lib/easyrtc_rates.js"></script>
+    <script type="text/javascript" src="js/desktop_capture_iframe_version.js"></script>
+    <script type="text/javascript" src="js/demo_send.js"></script>
+</head>
+<body>
+<!--hide-->
+<div>
+
+    <button id="connectButton" onclick="connectAndShare()">Connect & share desktop</button>
+    <div id="iam">Not yet connected...</div>
+    <div id="videoSrcBlk"></div>
+    <div id="videos">
+        <div autoplay="autoplay" id="localVideos"></div>
+    </div>
+</div>
+<!--show-->
+</body>
+</html>

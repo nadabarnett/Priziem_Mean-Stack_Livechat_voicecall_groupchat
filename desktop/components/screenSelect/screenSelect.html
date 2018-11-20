@@ -1,0 +1,17 @@
+<div flex layout="column">
+    <div  layout="column" flex class="screen-select-main">
+        <div>
+            <md-list>
+                <md-button class="screen-select-button" ng-repeat="screenSource in screenSources" ng-click="onSelectScreen(screenSource.id)">
+                    <p title="{{screenSource.name}}" class="screen-select-p">
+                        <md-icon>{{screenSource.id==SHARE_TYPE_WHITEBOARD?"brush":(screenSource.id.startsWith('screen')?'desktop_windows':'apps')}}</md-icon>
+                        &nbsp;{{screenSource.name}}</p>
+                    <md-tooltip ng-if="!!screenSource.thumbnail" class="screen-select-tooltip" md-direction="right">
+                        <span>1</span>
+                        <img ng-src="{{screenSource.thumbnail.toDataURL()}}"/>
+                    </md-tooltip>
+                </md-button>
+            </md-list>
+        </div>
+    </div>
+</div>

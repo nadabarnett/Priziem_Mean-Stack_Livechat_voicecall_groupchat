@@ -1,0 +1,12 @@
+<div flex layout="column" layout-align="center center">
+    <form  ng-submit="onRenameDocClick(doc_name)">
+        <md-input-container class="md-block">
+            <label>Document Name</label>
+            <input ng-model="doc_name" autofocus ng-keyup="onDocKeyDown($event)">
+
+            
+        </md-input-container>
+    </form>
+    <md-button class="md-raised md-primary" ng-click="onRenameDocClick(doc_name)">Rename</md-button>
+    <label style="color:red;">{{docrror}}</label>
+</div>

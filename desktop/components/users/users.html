@@ -1,0 +1,23 @@
+<div  layout="column" flex class="user-select-main">
+    <div>
+        <md-list>
+            <md-subheader ng-repeat-start="(subHeader,value) in {'Presenters':true,'Attendees':false}"
+                          class="md-no-sticky">{{subHeader}}({{($parent.cls | filter: {isPresenter: value}).length}})</md-subheader>
+            <md-list-item layout="row" class="noright" ng-repeat="cl in users = ($parent.cls | filter: {isPresenter: value})">
+                <md-icon md-colors="{color:'grey-A100', background:'primary'}"
+                         md-svg-icon="css/svg/profile.svg" class="md-avatar-icon"></md-icon>
+                <p flex> {{ cl.login }} </p>
+                <md-button aria-label="screenshare" class="md-primary md-icon-button" ng-disabled="value">
+                    <md-icon md-svg-src="css/svg/screenshare.svg"></md-icon>
+                </md-button>
+                <md-button aria-label="mic" class="md-primary md-icon-button" ng-show="cl.hasMic" ng-disabled="true">
+                    <md-icon md-svg-src="css/svg/microphone.svg"></md-icon>
+                </md-button>
+                <md-button aria-label="webcam" class="md-primary md-icon-button" ng-show="cl.hasWebCam" ng-disabled="true">
+                    <md-icon md-svg-src="css/svg/webcam.svg"></md-icon>
+                </md-button>
+            </md-list-item>
+            <p ng-if="!users.length" class="users-empty"  ng-repeat-end>{{value?'No presenters now':'No attendees now'}}</p>
+        </md-list>
+    </div>
+</div>

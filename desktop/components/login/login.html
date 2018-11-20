@@ -1,0 +1,62 @@
+<div ng-controller="login" class="fullheight">
+        <!--====== Header area started here ======-->
+        <header class="header-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a  href="#" class="logo">
+                            <img src="assets/img/Bitmap_14.png" alt="logo img">
+                            <span>The Prizem</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="header-right">
+                        <a  class="faq-icon" href="#">
+                            <span class="icon-wrap">
+                                <img class="under" src="assets/img/faq-black.png" alt="bitmap img">
+                                <img class="upper" src="assets/img/faq-blue.png" alt="bitmap img">
+                            </span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--====== Header area end here ======-->
+    
+        <!--====== Home login started here ======-->
+        <div class="login">
+            <div class="home-wrap d-table">
+                <div class="align-middle d-table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 offset-lg-4">
+                                <div class="colored-box">
+                                    <div class="input-wrap">
+                                        <input ng-model="email" autofocus ng-keyup="onLoginKeyDown($event)" type="email" id="email" placeholder="Enter Your Email ID">
+                                        <a ng-click="onClickLogin(email)"><img src="assets/img/arrow-right.png" alt="arrow right img"></a>
+                                    </div>
+                                </div>
+                                <p>Content sharing made easy within the teams with just one click…</p>
+                                <p style="color:red;">{{usererror}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--====== Home login end here ======-->
+    
+        <!--====== Footer area start here ======-->
+        <footer class="footer-right">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        &copy; Copyrights Reserved. <a href="#">ThePrizem</a> 2018
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--====== Footer area end here ======-->
+    </div>

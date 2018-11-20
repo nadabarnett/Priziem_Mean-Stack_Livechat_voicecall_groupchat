@@ -1,0 +1,9 @@
+<div flex layout="column" layout-align="center center">
+    <div>{{message||'Loading'}}</div>
+    <div>
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div>
+        <md-button id="cancelButton" class="md-raised md-primary" ng-disabled="!cancelState" ng-click="cancelClick()">Cancel</md-button>
+    </div>
+</div>

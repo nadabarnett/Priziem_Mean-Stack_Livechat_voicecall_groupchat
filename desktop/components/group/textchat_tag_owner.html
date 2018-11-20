@@ -1,0 +1,39 @@
+<style type="text/css">
+	.my-chat {
+		padding-left:16px;
+		padding-right:16px;
+		margin:2px;
+		font-family: arial;
+	}
+
+	.panel-body {
+		text-align:left; 
+		word-wrap:break-word;
+		padding: 3px;
+		background-color: #f6fcff;	
+	}
+
+	.panel-body .text-muted {
+		font-weight: bold;
+		height: 8px;
+	}
+
+	.panel-body .my-caht-text {
+		margin:0; 
+		font-size:1.2e;
+	}
+</style>
+
+<div class="my-chat">
+    <div class="panel panel-default" style="">
+        <div class="panel-body">
+            <p class="text-muted pull-right"> 
+            	My chat &nbsp
+            	<small>
+            		{{ chat.date | date:'h:mma' }}
+            	</small>
+            </p><br>
+            <p class="my-chat-text" ng-bind-html="chat.text.text | trustAsHtml"></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+/* Medium Layout: 1280px. */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .input-wrap input {
+        width: 86%;
+    }
+    .output{
+        width: 80%
+    }
+    .side-tab{
+        width: 20%
+    }
+    .header-area {
+        position: static;
+    }
+}
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .side-tab{
+        width: 25%;
+    }
+    .output{
+        width: 75%;
+    }
+    a.single-color-box {
+        padding: 42px;
+    }
+    .header-area {
+        position: static;
+    }
+
+    .team-info-wrap {
+        min-height: auto;
+        margin-bottom: 30px;
+    }
+
+    footer.footer-right {
+        text-align: center;
+    }
+    
+}
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px) {
+    .header-area{
+        position: static;
+    }
+    .landing .align-middle.d-table-cell{
+        padding: 15px 0;
+    }
+    .input-wrap input {
+        width: 80%;
+    }
+    span.navigator-text {
+        visibility: hidden;
+        opacity: 0;
+    }
+    .side-tab{
+        widows: 10%;
+    }
+    .output{
+        widows: 90%;
+    }
+    .side-tab .nav-tabs .nav-link {
+        padding: 15px 0;
+        display: block;
+    }
+
+    a.single-color-box {
+        margin-top: 50px;
+    }
+    .tab-content, .tab-content div{
+        height: auto;
+    }
+    a.single-color-box {
+        padding: 22px;
+    }
+    header.header-area .row {
+        text-align: center;
+    }
+
+    .header-right {
+        text-align: center;
+        margin-top: 27px;
+    }
+
+    .logo img {
+        left: 75px;
+    }
+
+    .team-type h1, .team-type .add-member {
+        width: 100%;
+        text-align: center;
+    }
+
+    .team-type h1 {
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .team-type .add-member a {font-size: 15px;}
+
+    .total-member {
+        text-align: center;
+        font-size: 44px;
+    }
+
+    a.single-box {
+        font-size: 16px;
+    }
+
+    .team-info-wrap {
+        min-height: auto;
+    }
+
+    span.user-wrap {
+        margin-top: 12px;
+    }
+
+    .team-info-wrap {
+        min-height: auto;
+        margin-bottom: 30px;
+    }
+
+    footer.footer-right {
+        text-align: center;
+    }
+    
+}
+/* Wide Mobile Layout: 480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) { 
+
+}

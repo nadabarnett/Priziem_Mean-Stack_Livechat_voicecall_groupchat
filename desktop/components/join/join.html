@@ -1,0 +1,141 @@
+<div ng-controller="join" class="landing fullheight" ng-init="onload()">
+    <!--====== Header area started here ======-->
+    <header class="header-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a  href="#" class="logo">
+                        <img src="assets/img/Bitmap_14.png" alt="logo img">
+                        <span>Join Team</span>
+                    </a>
+                </div>
+                <div class="col-sm-8">
+                    <div class="header-right">
+                        <div class="header-right">
+                            <a  class="faq" href="#">
+                                <span class="icon-wrap">
+                                <img class="under" src="assets/img/faq-black.png" alt="bitmap img">
+                                <img class="upper" src="assets/img/faq-blue.png" alt="bitmap img">
+                            </span>
+                            </a>
+                            <a  class="notification" href="#">
+                                <span class="icon-wrap">
+                                <img class="under" src="assets/img/notification-black.png" alt="bitmap img">
+                                <img class="upper" src="assets/img/notification-blue.png" alt="bitmap img">
+                            </span>
+                            </a>
+                            <span class="user-wrap">
+                                <span class="icon-wrap">
+                                <img class="under" src="assets/img/user-icon-black.png" alt="bitmap img">
+                                <img class="upper" src="assets/img/user-icon-white.png" alt="bitmap img">
+                            </span>
+                                <a href="#">{{loginName}}</a>
+                                <i class="fa fa-angle-down"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--====== Header area end here ======-->
+    
+    <!--====== Team section started here ======-->
+    
+    <div class="home-wrap d-table">
+        <div class="align-middle d-table-cell">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="team-info-wrap">
+                            <div class="team-info">
+                                <div class="team-type">
+                                    <h1>Public Teams</h1>
+                                    <div class="add-member">
+                                        <a ng-click="onShowCreatePublic()" href=""><span class="plus">+</span> Add New</a>
+                                    </div>
+                                </div>
+                                <div class="total-member">{{getPublicTeams()}}</div>
+                            </div>
+                            <div class="team-catagory-wrapper">
+                                <div class="team-catagory">
+                                    <a ng-repeat="team in public_teams" ng-click="enterPublicRoom(team)" href="" class="single-box">
+                                        {{team.name}}
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="team-info-wrap blue-wrap">
+                            <div class="team-info">
+                                <div class="team-type">
+                                    <h1>Private Teams</h1>
+                                    <div class="add-member">
+                                        <a ng-click="onShowCreatePrivate()" href=""><span class="plus">+</span> Add New</a>
+                                    </div>
+                                </div>
+                                <div class="total-member">{{getPrivateTeams()}}</div>
+                            </div>
+    
+                            <div class="team-catagory-wrapper">
+                                <div class="team-catagory">
+                                    <a ng-repeat="team in private_teams" ng-click="enterPrivateRoom(team)" href="" class="single-box">
+                                            {{team.name}}
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="create-room-box" ng-show="bShowCreatePublicTeam">
+        <div class="create-room-head">
+            <h3 class="create-room-head">Create Public Teams</h3>
+            <i class="fa fa-close" ng-click="onClosePublicTeam()"></i>
+        </div>
+        <div class="create-room-body">
+            <form  ng-submit="onCreatePublicTeam(team_name)">
+                <label style="margin-top: 30px;">Document Name</label><br>
+                <input ng-model="team_name" autofocus ng-keyup="onTeamKeyDown($event)">
+            </form>
+            <label style="color:red;">{{teamerror}}</label>
+        </div>
+        <div class="create-room-footer">
+            <input class="create-room-create" ng-click="onCreatePublicTeam(team_name)" value="Create">
+        </div>
+    </div>
+
+    <div class="create-room-box" ng-show="bShowCreatePrivateTeam">
+        <div class="create-room-head">
+            <h3 class="create-room-head">Create Private Teams</h3>
+            <i class="fa fa-close" ng-click="onClosePublicTeam()"></i>
+        </div>
+        <div class="create-room-body">
+            <form  ng-submit="onCreatePrivateTeam(team_name)">
+                <label style="margin-top: 30px;">Document Name</label><br>
+                <input ng-model="team_name" autofocus ng-keyup="onTeamKeyDown($event)">
+            </form>
+            <label style="color:red;">{{teamerror}}</label>
+        </div>
+        <div class="create-room-footer">
+            <input class="create-room-create" ng-click="onCreatePrivateTeam(team_name)" value="Create">
+        </div>
+    </div>
+    <footer class="footer-right">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    &copy; Copyrights Reserved. <a href="#">ThePrizem</a> 2018
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</div>
+
+

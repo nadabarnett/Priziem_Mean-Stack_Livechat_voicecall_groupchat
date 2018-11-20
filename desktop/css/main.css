@@ -1,0 +1,289 @@
+body{
+    box-sizing: border-box;
+    border: 1px solid black;
+    overflow-y: hidden;
+}
+
+button{
+    min-width: 10px;
+    margin: 3px;
+}
+ui-view {
+    display: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+div,p,span{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+
+}
+.home-icon{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+    bottom: 10%;
+    width: auto;
+    height: auto;
+}
+.home-p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2%;
+    font-size: 170%;
+    text-align: center;
+}
+.home-bg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.left-panel{
+    border-right: 1px solid black;
+    box-sizing: border-box;
+    width: auto !important;
+}
+.left-panel>button{
+    height: auto !important;
+    width: auto !important;
+    border-radius: 0 !important;
+    font-size: 10px;
+    margin: 0 !important;
+    padding: 5px 5px !important;
+}
+.left-panel>button>md-icon{
+    height: auto;
+    width: auto;
+    max-width: 48px;
+    max-height: 48px;
+    margin: -3px auto;
+}
+.top-panel{
+    min-height: 40px;
+}
+.top-panel-box{
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+.top-panel-no-box>.top-panel-buttons{
+    right: 2px;
+}
+.top-panel-move{
+    -webkit-app-region: drag;
+    app-region: drag;
+}
+.top-panel>span{
+    font-size: 16px !important;
+    text-align: center;
+}
+.top-panel-buttons{
+    position: absolute;
+    right: 0;
+}
+.top-panel-buttons>button{
+    margin: 0 !important;
+    -webkit-app-region: no-drag;
+    app-region: no-drag;
+    height: auto;
+    width: auto;
+}
+.top-panel-buttons>button>md-icon{
+    width: 19px;
+    height: 19px;
+    min-width: 19px;
+    min-height: 19px;
+}
+.ui-content{
+    width: 300px;
+    height: 300px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background: lightgray;
+    position: absolute;
+}
+.ui-content-pos-login
+{
+    top:0;
+}
+.ui-content-pos-wifi
+{
+    bottom:0;
+}
+.ui-content-pos-screenSelect, .ui-content-pos-streaming
+{
+    top:100px;
+}
+.ui-content-pos-users
+{
+    top:180px;
+}
+.dialog-create_team
+{
+    z-index: 10;
+    top: calc(50% - 150px);
+    left:calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background: lightgray;
+    position: absolute;
+
+}
+.ui-content-pos-create_doc
+{
+    top:0px;
+    left:220px;
+}
+.ui-content-pos-rename_doc
+{
+    top:0px;
+    left:220px;
+}
+.panel-close-button{
+    position: absolute;
+    right: 0;
+}
+.wifi-title{
+    height: 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+}
+
+.wifi-main{
+    overflow-y:auto;
+}
+.wifi-main>div>md-list{
+    padding: 0;
+}
+.wifi-chapter{
+    padding: 0 0 0 15px;
+}
+.wifi-device{
+    padding: 0 0 0 30px;
+    margin: 0;
+}
+.wifi-device-icon{
+    width: 48px;
+    height: 48px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+  }
+  
+  .switch input {display:none;}
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 2x;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  
+.users-empty
+{
+    padding: 5px;
+}
+.user-select-main>div>md-list{
+    padding: 0;
+}
+.user-select-main>div>md-list>md-list-item>button{
+    margin: 0 -5px !important;
+}
+.user-select-main>div>md-list>md-list-item{
+    margin-left: -5px;
+}
+.user-select-main>div>md-list>md-list-item>p{
+    margin-left: -5px;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+ }
+.screen-select-main, .user-select-main{
+    overflow-y:auto;
+}
+.screen-select-button{
+    margin: 0;
+}
+.screen-select-p{
+    width: 270px !important;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.screen-select-tooltip{
+    height: auto;
+    width: auto;
+    padding:0;
+}
+.screen-select-tooltip>span{
+    display: none;
+}
+.screen-select-tooltip>img{
+    margin-bottom: -7px;
+    max-width: 480px;
+    max-height: 270px;
+}
+/* #streamVideo{
+    position:absolute;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+} */
